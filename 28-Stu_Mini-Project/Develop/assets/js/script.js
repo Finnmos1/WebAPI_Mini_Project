@@ -16,11 +16,17 @@ let tempStorageObject = {
 let currentElement = null;
 
 clearBtn.addEventListener('click', function () {
-  // TODO: Clear the local storage and refresh the page
+  localStorage.clear();
+  location.reload();
 });
 
 function updateLocalStorage() {
-  // TODO: Update the local storage with the tempStorageObject
+  const tempStorage = {
+    image: imageUrlInput.value.trim(),
+    text: textInput.value.trim()
+  };
+
+  localStorage.setItem('tempStorage', JSON.stringify(tempStorage));
 }
 
 // ? Function to load from local storage. This function will be called on page load.
